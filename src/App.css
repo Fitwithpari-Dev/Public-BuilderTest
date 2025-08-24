@@ -188,8 +188,8 @@ body {
   height: 381px;
   position: relative;
   overflow: hidden;
-  flex: 1;
-  min-width: 670px;
+  width: 394px;
+  flex-shrink: 0;
 }
 
 .featured-card::before {
