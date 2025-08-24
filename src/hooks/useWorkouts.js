@@ -76,14 +76,16 @@ export const useWorkouts = () => {
         // Try multiple API endpoints and methods
         let data = null;
         
-        // Method 1: Try the v3 API with published filter
+        // Method 1: Try the v3 API with published filter and cache busting
         try {
+          const timestamp = Date.now();
           const response = await fetch(
-            `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=10&published=published&fields=data,id,name`,
+            `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=20&published=published&fields=data,id,name&cachebust=${timestamp}&sort.data.sortOrder=1`,
             {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache',
               }
             }
           );
