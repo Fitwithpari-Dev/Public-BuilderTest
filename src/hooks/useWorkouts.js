@@ -79,26 +79,31 @@ export const useWorkouts = () => {
         // Method 1: Try the v3 API with published filter and cache busting
         try {
           const timestamp = Date.now();
-          const response = await fetch(
-            `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=20&published=published&fields=data,id,name&cachebust=${timestamp}&sort.data.sortOrder=1`,
-            {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache',
-              }
+          const apiUrl = `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=20&published=published&fields=data,id,name&cachebust=${timestamp}&sort.data.sortOrder=1`;
+          console.log('🔍 Attempting API call to:', apiUrl);
+          console.log('🔑 Using API Key:', BUILDER_API_KEY.substring(0, 8) + '...');
+
+          const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Cache-Control': 'no-cache',
             }
-          );
-          
+          });
+
+          console.log('📡 Response status:', response.status, response.statusText);
+
           if (response.ok) {
             data = await response.json();
             console.log('✅ CMS API Success:', data);
           } else {
             console.warn(`❌ API Response ${response.status}:`, response.statusText);
+            const errorText = await response.text();
+            console.warn('❌ Error response body:', errorText);
             throw new Error(`API returned ${response.status}: ${response.statusText}`);
           }
         } catch (apiError) {
-          console.warn('❌ Primary API failed:', apiError.message);
+          console.warn('❌ Primary API failed:', apiError.message, apiError);
           
           // Method 2: Try without the published filter
           try {
