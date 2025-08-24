@@ -131,12 +131,12 @@ export const useWorkouts = () => {
         }
         
         // Process the data
-        if (data && data.results && data.results.length >= 4) {
+        if (data && data.results && data.results.length > 0) {
           console.log(`📊 Loaded ${data.results.length} workouts from CMS`);
           setWorkouts(data.results);
           setUsingFallback(false);
         } else {
-          console.warn(`⚠️ Only ${data?.results?.length || 0} workouts found in CMS, need 4. Using fallback to ensure complete display.`);
+          console.warn(`⚠️ No workouts found in CMS response. Using fallback data.`);
           // Use fallback to ensure all 4 workouts are displayed
           setWorkouts(FALLBACK_WORKOUTS);
           setUsingFallback(true);
