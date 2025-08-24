@@ -70,45 +70,72 @@ function App() {
       {/* Main Content */}
       <main className="main-content">
         {/* Featured Workout Card */}
-        <div className="featured-card">
-          <div className="time-tag">7:30 PM</div>
-          <div className="card-content">
-            <h2 className="workout-title">30 Mins<br/>Full Body Mobility</h2>
-            <button className="mark-calendar-btn">Mark Calendar</button>
+        {featuredWorkout && (
+          <div
+            className="featured-card"
+            style={{
+              background: featuredWorkout.data.gradientColors
+                ? `radial-gradient(208.58% 116.91% at 24.85% 2.36%, ${featuredWorkout.data.gradientColors.from} 0%, ${featuredWorkout.data.gradientColors.to} 100%)`
+                : 'radial-gradient(208.58% 116.91% at 24.85% 2.36%, #9D9BFF 0%, #19182E 100%)'
+            }}
+          >
+            {featuredWorkout.data.scheduleTime && (
+              <div className="time-tag">{featuredWorkout.data.scheduleTime}</div>
+            )}
+            <div className="card-content">
+              <h2 className="workout-title">
+                {featuredWorkout.data.duration} Mins<br/>
+                {featuredWorkout.data.title.replace(/^\d+\s*Mins\s*/, '')}
+              </h2>
+              <button className="mark-calendar-btn">Mark Calendar</button>
+            </div>
+            <div
+              className="card-image"
+              style={{
+                backgroundImage: `url(${featuredWorkout.data.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            ></div>
           </div>
-          <div className="card-image"></div>
-        </div>
+        )}
 
         {/* Workout Cards Grid */}
         <div className="workout-grid">
-          <div className="workout-card zumba">
-            <div className="card-image"></div>
-            <div className="card-content">
-              <h3>50 Mins<br/>Zumba</h3>
+          {regularWorkouts.slice(0, 3).map((workout, index) => (
+            <div
+              key={workout.id || index}
+              className={`workout-card ${workout.data.workoutType.toLowerCase()}`}
+              style={{
+                background: workout.data.gradientColors
+                  ? `linear-gradient(180deg, ${workout.data.gradientColors.from} 0%, ${workout.data.gradientColors.to} 100%)`
+                  : 'linear-gradient(180deg, #F6A0F7 0%, #4B4B78 100%)'
+              }}
+            >
+              <div
+                className="card-image"
+                style={{
+                  backgroundImage: `url(${workout.data.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              ></div>
+              <div className="card-content">
+                <h3>
+                  {workout.data.duration} Mins<br/>
+                  {workout.data.title.replace(/^\d+\s*Mins\s*/, '')}
+                </h3>
+              </div>
             </div>
-          </div>
-
-          <div className="workout-card yoga">
-            <div className="card-image"></div>
-            <div className="card-content">
-              <h3>60 Mins<br/>Yoga</h3>
-            </div>
-          </div>
-
-          <div className="workout-card hiit">
-            <div className="card-image"></div>
-            <div className="card-content">
-              <h3>45 Mins<br/>HIIT</h3>
-            </div>
-          </div>
+          ))}
         </div>
       </main>
 
       {/* Category Tags */}
       <div className="category-tags">
-        <span className="tag">Flexibility & Mobility</span>
-        <span className="tag">Strength</span>
-        <span className="tag">Balance</span>
+        {allTags.slice(0, 5).map((tag, index) => (
+          <span key={index} className="tag">{tag}</span>
+        ))}
       </div>
 
       {/* What you need section */}
