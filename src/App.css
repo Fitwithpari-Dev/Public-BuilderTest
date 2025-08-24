@@ -265,7 +265,6 @@ body {
 /* Workout Cards Grid */
 .workout-grid {
   display: flex;
-  flex-direction: column;
   gap: 20px;
   flex-shrink: 0;
 }
