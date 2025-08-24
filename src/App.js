@@ -87,11 +87,7 @@ function App() {
           marginTop: "20px",
         }}
       >
-        <div
-          dangerouslySetInnerHTML={{
-            __html: "<p>Hello there, I am custom HTML code!</p>"
-          }}
-        />
+        <div />
       </div>
 
       {/* Main Content */}
@@ -127,6 +123,26 @@ function App() {
           </div>
         )}
 
+        <button
+          onClick={() => alert('Hello! This is a popup from the Click me button!')}
+          style={{
+            all: "unset",
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+            marginTop: "20px",
+            appearance: "none",
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "4px",
+            textAlign: "center",
+            cursor: "pointer",
+            padding: "15px 25px",
+          }}
+        >
+          Click me!
+        </button>
+
         {/* Workout Cards Grid */}
         <div className="workout-grid">
           {regularWorkouts.slice(0, 3).map((workout, index) => (
@@ -158,24 +174,6 @@ function App() {
         </div>
       </main>
 
-      <button
-        style={{
-          all: "unset",
-          display: "flex",
-          flexDirection: "column",
-          position: "relative",
-          marginTop: "20px",
-          appearance: "none",
-          backgroundColor: "black",
-          color: "white",
-          borderRadius: "4px",
-          textAlign: "center",
-          cursor: "pointer",
-          padding: "15px 25px",
-        }}
-      >
-        Click me!
-      </button>
 
       {/* Category Tags */}
       <div className="category-tags">
