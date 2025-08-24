@@ -332,7 +332,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 70px;
   background: linear-gradient(180deg, rgba(6, 6, 27, 0.00) 5.91%, #06061B 78.49%);
   z-index: 2;
 }
