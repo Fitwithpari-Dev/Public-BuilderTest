@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-// Builder.io API key and space ID - you'll need to get these from your Builder.io dashboard
-const BUILDER_API_KEY = 'bce0ad0fceb94c789cf7de1055a9ebc7'; // This might need to be updated with your actual API key
+// Builder.io API configuration
+const BUILDER_API_KEY = 'b332dff24efe415680306c97b6b8c502'; // Updated with correct API key
 const BUILDER_API_URL = 'https://cdn.builder.io/api/v3/content/workout';
 
 export const useWorkouts = () => {
@@ -14,7 +14,7 @@ export const useWorkouts = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=10&fields=data&sort.data.sortOrder=1`
+          `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=10&fields=data&published=published`
         );
         
         if (!response.ok) {
@@ -22,6 +22,7 @@ export const useWorkouts = () => {
         }
         
         const data = await response.json();
+        console.log('CMS Response:', data); // Debug log
         setWorkouts(data.results || []);
       } catch (err) {
         setError(err.message);
