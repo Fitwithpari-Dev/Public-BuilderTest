@@ -103,11 +103,12 @@ export const useWorkouts = () => {
           // Method 2: Try without the published filter
           try {
             const fallbackResponse = await fetch(
-              `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=10&fields=data,id,name`,
+              `${BUILDER_API_URL}?apiKey=${BUILDER_API_KEY}&limit=20&fields=data,id,name&cachebust=${timestamp}&sort.data.sortOrder=1`,
               {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',
+                  'Cache-Control': 'no-cache',
                 }
               }
             );
