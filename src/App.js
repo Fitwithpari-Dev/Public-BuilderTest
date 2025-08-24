@@ -3,7 +3,7 @@ import './App.css';
 import { useWorkouts } from './hooks/useWorkouts';
 
 function App() {
-  const { workouts, loading, error, getFeaturedWorkout, getRegularWorkouts, getAllTags } = useWorkouts();
+  const { workouts, loading, error, usingFallback, getFeaturedWorkout, getRegularWorkouts, getAllTags, getDebugInfo } = useWorkouts();
 
   if (loading) {
     return (
@@ -15,14 +15,18 @@ function App() {
     );
   }
 
-  if (error) {
-    console.error('CMS Error:', error);
-    // Continue with fallback data
+  // Debug information (only shown in development)
+  if (process.env.NODE_ENV === 'development') {
+    const debugInfo = getDebugInfo();
+    console.log('🔍 Debug Info:', debugInfo);
   }
 
   const featuredWorkout = getFeaturedWorkout();
   const regularWorkouts = getRegularWorkouts();
   const allTags = getAllTags();
+
+  // Show status indicator if using fallback data
+  const showStatusIndicator = usingFallback || error;
 
   return (
     <div className="fitness-app">
