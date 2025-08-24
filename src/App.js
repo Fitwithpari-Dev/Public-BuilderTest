@@ -3,6 +3,7 @@ import './App.css';
 import { useWorkouts } from './hooks/useWorkouts';
 
 function App() {
+  // Updated with live Builder.io CMS integration
   const { workouts, loading, error, usingFallback, getFeaturedWorkout, getRegularWorkouts, getAllTags, getDebugInfo } = useWorkouts();
 
   if (loading) {
