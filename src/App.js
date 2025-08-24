@@ -79,6 +79,21 @@ function App() {
         </button>
       </div>
 
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          marginTop: "20px",
+        }}
+      >
+        <div
+          dangerouslySetInnerHTML={{
+            __html: "<p>Hello there, I am custom HTML code!</p>"
+          }}
+        />
+      </div>
+
       {/* Main Content */}
       <main className="main-content">
         {/* Featured Workout Card */}
