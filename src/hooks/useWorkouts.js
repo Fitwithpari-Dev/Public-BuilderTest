@@ -120,19 +120,21 @@ export const useWorkouts = () => {
               throw new Error(`Fallback API failed: ${fallbackResponse.status}`);
             }
           } catch (fallbackError) {
-            console.warn('❌ Fallback API also failed:', fallbackError.message);
+            console.warn('�� Fallback API also failed:', fallbackError.message);
             throw new Error('All API methods failed');
           }
         }
         
         // Process the data
-        if (data && data.results && data.results.length > 0) {
+        if (data && data.results && data.results.length >= 4) {
           console.log(`📊 Loaded ${data.results.length} workouts from CMS`);
           setWorkouts(data.results);
           setUsingFallback(false);
         } else {
-          console.warn('⚠️ No workout data found, using fallback');
-          throw new Error('No workout data available');
+          console.warn(`⚠️ Only ${data?.results?.length || 0} workouts found in CMS, need 4. Using fallback to ensure complete display.`);
+          // Use fallback to ensure all 4 workouts are displayed
+          setWorkouts(FALLBACK_WORKOUTS);
+          setUsingFallback(true);
         }
         
       } catch (err) {
