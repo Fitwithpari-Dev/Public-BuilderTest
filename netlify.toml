@@ -4,3 +4,6 @@
 
 [build.environment]
   REACT_APP_BUILDER_API_KEY = "b332dff24efe415680306c97b6b8c502"
+
+# Force rebuild timestamp
+# Updated: 2025-08-24
