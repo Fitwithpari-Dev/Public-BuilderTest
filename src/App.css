@@ -331,21 +331,21 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 186px;
   background: linear-gradient(180deg, rgba(6, 6, 27, 0.00) 5.91%, #06061B 78.49%);
   z-index: 2;
 }
 
 .workout-card .card-content {
   position: absolute;
-  bottom: 10px;
-  left: 15px;
+  bottom: 40px;
+  left: 42px;
   z-index: 3;
 }
 
 .workout-card h3 {
   color: var(--text-color-white);
-  font-size: 18px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.21;
   margin: 0;
