@@ -1,7 +1,29 @@
 import React from 'react';
 import './App.css';
+import { useWorkouts } from './hooks/useWorkouts';
 
 function App() {
+  const { workouts, loading, error, getFeaturedWorkout, getRegularWorkouts, getAllTags } = useWorkouts();
+
+  if (loading) {
+    return (
+      <div className="fitness-app">
+        <div className="loading-container">
+          <p>Loading workouts...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    console.error('CMS Error:', error);
+    // Continue with fallback data
+  }
+
+  const featuredWorkout = getFeaturedWorkout();
+  const regularWorkouts = getRegularWorkouts();
+  const allTags = getAllTags();
+
   return (
     <div className="fitness-app">
       {/* Top Navigation */}
