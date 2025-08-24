@@ -339,8 +339,8 @@ body {
 
 .workout-card .card-content {
   position: absolute;
-  bottom: 15px;
-  left: 20px;
+  bottom: 10px;
+  left: 15px;
   z-index: 3;
 }
 
