@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // Builder.io API configuration
-const BUILDER_API_KEY = 'b332dff24efe415680306c97b6b8c502';
+const BUILDER_API_KEY = process.env.REACT_APP_BUILDER_API_KEY || 'b332dff24efe415680306c97b6b8c502';
 const BUILDER_API_URL = 'https://cdn.builder.io/api/v3/content/workout';
 
 // Fallback data to ensure the app always works
