@@ -188,6 +188,8 @@ body {
   height: 381px;
   position: relative;
   overflow: hidden;
+  flex: 1;
+  min-width: 670px;
 }
 
 .featured-card::before {
@@ -261,9 +263,16 @@ body {
 }
 
 /* Workout Cards Grid */
+.workout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
 .workout-card {
   width: 210px;
-  height: 381px;
+  height: 115px;
   border-radius: 24px;
   position: relative;
   overflow: hidden;
@@ -323,21 +332,21 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 186px;
+  height: 60px;
   background: linear-gradient(180deg, rgba(6, 6, 27, 0.00) 5.91%, #06061B 78.49%);
   z-index: 2;
 }
 
 .workout-card .card-content {
   position: absolute;
-  bottom: 40px;
-  left: 42px;
+  bottom: 15px;
+  left: 20px;
   z-index: 3;
 }
 
 .workout-card h3 {
   color: var(--text-color-white);
-  font-size: 32px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.21;
   margin: 0;
