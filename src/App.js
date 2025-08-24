@@ -143,6 +143,25 @@ function App() {
         </div>
       </main>
 
+      <button
+        style={{
+          all: "unset",
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          marginTop: "20px",
+          appearance: "none",
+          backgroundColor: "black",
+          color: "white",
+          borderRadius: "4px",
+          textAlign: "center",
+          cursor: "pointer",
+          padding: "15px 25px",
+        }}
+      >
+        Click me!
+      </button>
+
       {/* Category Tags */}
       <div className="category-tags">
         {allTags.slice(0, 5).map((tag, index) => (
