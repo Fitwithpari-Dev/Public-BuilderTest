@@ -192,15 +192,12 @@ body {
   flex-shrink: 0;
 }
 
-.featured-card::before {
-  content: '';
+.featured-card .card-image {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/7dc2a579d94f83b1bb38dd9acb6a3b8496311c24?width=637') no-repeat center;
-  background-size: cover;
   opacity: 0.8;
   z-index: 1;
 }
@@ -281,47 +278,12 @@ body {
   background: radial-gradient(106.3% 111.6% at 31.38% 0%, #FEF2AE 33.4%, #4B4B78 100%);
 }
 
-.workout-card.zumba::before {
-  content: '';
+.workout-card .card-image {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/f0016c60e21fd3136ce95ea50bd2d132cc9ca4a2?width=129') no-repeat center;
-  background-size: cover;
-  z-index: 1;
-}
-
-.workout-card.yoga {
-  background: linear-gradient(180deg, #F6A0F7 0%, #4B4B78 100%);
-}
-
-.workout-card.yoga::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/a99568d4ccf0a5336264654d214a650f47d5a4f8?width=245') no-repeat center;
-  background-size: cover;
-  z-index: 1;
-}
-
-.workout-card.hiit {
-  background: linear-gradient(180deg, #A9F7A0 0%, #4B4B78 100%);
-}
-
-.workout-card.hiit::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/df03553201af1f41503b44b683afe85373a297c7?width=210') no-repeat center;
-  background-size: cover;
   z-index: 1;
 }
 
@@ -368,6 +330,16 @@ body {
   font-size: 16px;
   font-weight: 500;
   text-transform: capitalize;
+}
+
+/* Loading Styles */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  color: var(--text-color-white);
+  font-size: 18px;
 }
 
 /* Info Section */
