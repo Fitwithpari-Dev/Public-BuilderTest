@@ -1,0 +1,6 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  REACT_APP_BUILDER_API_KEY = "b332dff24efe415680306c97b6b8c502"
