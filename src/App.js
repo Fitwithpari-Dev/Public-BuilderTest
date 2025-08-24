@@ -30,6 +30,13 @@ function App() {
 
   return (
     <div className="fitness-app">
+      {/* Status Indicator for Development */}
+      {showStatusIndicator && process.env.NODE_ENV === 'development' && (
+        <div className="status-indicator">
+          {usingFallback ? '⚠️ Using fallback data - CMS connection failed' : `❌ CMS Error: ${error}`}
+        </div>
+      )}
+
       {/* Top Navigation */}
       <header className="top-navigation">
         <div className="logo">
